@@ -201,33 +201,21 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      scroll-behavior: smooth;
-    }
-
-    /* ------------------ GENERAL BG ------------------ */
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
       background: radial-gradient(circle at top, #49205f, #1a0f2e, #0c0618);
       min-height: 100vh;
       overflow-x: hidden;
+      font-family: Arial, sans-serif;
     }
 
-    /* ------------------ LOGIN CENTER WRAPPER ------------------ */
     .login-wrapper {
       width: 100%;
-      min-height: calc(100vh - 120px);
       display: flex;
       justify-content: center;
-      align-items: center;
-      padding-top: 120px;
-      padding-bottom: 40px;
+      padding: 40px 0 60px; /* SMALL GAP BELOW HEADER */
     }
 
-    /* ------------------ LOGIN CARD ------------------ */
     .login-card {
       width: 380px;
       padding: 40px;
@@ -242,7 +230,7 @@
       width: 80px;
       height: 80px;
       border-radius: 50%;
-      margin: 0 auto 20px auto;
+      margin: 0 auto 20px;
       background: rgba(255,255,255,0.2);
       display: flex;
       justify-content: center;
@@ -252,9 +240,8 @@
       font-size: 40px;
     }
 
-    /* Inputs */
     .input-group {
-      margin-bottom: 22px;
+      margin-bottom: 5px;
     }
     .input-group label {
       font-size: 14px;
@@ -271,25 +258,22 @@
       outline: none;
     }
 
-    /* Error message */
-    .input-error {
-      color: #ff5b5b;
-      font-size: 14px;
-      margin-top: 6px;
+    .error-text {
+      color: #ff6b6b;
+      font-size: 13px;
+      margin-bottom: 12px;
       display: none;
-      opacity: 0;
-      transition: opacity 0.25s ease-in-out;
     }
 
-    .remember {
+    .action-row {
       display: flex;
       justify-content: space-between;
-      font-size: 14px;
-      opacity: 0.8;
-      margin-bottom: 20px;
+      margin: 5px 0 20px;
     }
-    .remember a {
-      color: #ccc;
+
+    .action-row a {
+      color: #e0e0e0;
+      font-size: 14px;
       text-decoration: none;
     }
 
@@ -311,37 +295,51 @@
       background: rgba(255,255,255,0.05);
       backdrop-filter: blur(10px);
       width: 100%;
+      margin-top: 40px;
+    }
+
+    .password-wrapper {
+      position: relative;
+    }
+    .password-wrapper i {
+      position: absolute;
+      right: 0;
+      top: 45%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: #ddd;
     }
   </style>
 </head>
 
 <body>
 
+<div style="height:40px;"></div> <!-- SMALL GAP BELOW HEADER -->
+
 <!-- ===================== LOGIN AREA ===================== -->
 <div class="login-wrapper">
   <div class="login-card">
-    
+
     <div class="profile-icon">
       <i class="fa-solid fa-user"></i>
     </div>
 
-    <!-- EMAIL -->
     <div class="input-group">
       <label>Email ID</label>
       <input type="text" id="email" />
-      <p id="err-email" class="input-error">Enter your email</p>
     </div>
+    <p id="emailError" class="error-text">Enter a proper email</p>
 
-    <!-- PASSWORD -->
-    <div class="input-group">
+    <div class="input-group password-wrapper">
       <label>Password</label>
       <input type="password" id="password" />
-      <p id="err-password" class="input-error">Enter your password</p>
+      <i class="fa-solid fa-eye" onclick="togglePassword()"></i>
     </div>
+    <p id="passError" class="error-text">Enter your password</p>
 
-    <div class="remember">
+    <div class="action-row">
       <a href="signup.html">Signup</a>
-      <a href="404.html">Forgot Password?</a>
+      <a href="forgot.html">Forgot Password?</a>
     </div>
 
     <button class="btn-login" onclick="validateLogin()">LOGIN</button>
@@ -356,35 +354,33 @@
 
 <script>
 function validateLogin() {
-  const email = document.getElementById("email").value.trim();
-  const pass = document.getElementById("password").value.trim();
+  let email = document.getElementById("email").value.trim();
+  let pass = document.getElementById("password").value.trim();
 
-  const ee = document.getElementById("err-email");
-  const ep = document.getElementById("err-password");
+  let emailError = document.getElementById("emailError");
+  let passError = document.getElementById("passError");
 
   let valid = true;
 
-  if (email === "") {
-    ee.style.display = "block";
-    setTimeout(() => ee.style.opacity = "1", 20);
+  emailError.style.display = "none";
+  passError.style.display = "none";
+
+  if (!email.includes("@") || !email.endsWith(".com")) {
+    emailError.style.display = "block";
     valid = false;
-  } else {
-    ee.style.opacity = "0";
-    setTimeout(() => ee.style.display = "none", 200);
   }
 
   if (pass === "") {
-    ep.style.display = "block";
-    setTimeout(() => ep.style.opacity = "1", 20);
+    passError.style.display = "block";
     valid = false;
-  } else {
-    ep.style.opacity = "0";
-    setTimeout(() => ep.style.display = "none", 200);
   }
 
-  if (valid) {
-    window.location.href = "404.html";
-  }
+  if (valid) window.location.href = "404.html";
+}
+
+function togglePassword() {
+  const input = document.getElementById("password");
+  input.type = input.type === "password" ? "text" : "password";
 }
 </script>
 
