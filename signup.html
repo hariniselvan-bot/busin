@@ -191,218 +191,231 @@
     document.getElementById("mobileHomeDrop").classList.toggle("hidden");
   }
 </script>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      scroll-behavior: smooth;
-    }
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Signup - STACKLY</title>
 
-    /* ------------------ GENERAL BG ------------------ */
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: radial-gradient(circle at top, #49205f, #1a0f2e, #0c0618);
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<script src="https://cdn.tailwindcss.com"></script>
 
-    /* ------------------ SIGNUP CENTER WRAPPER ------------------ */
-    .signup-wrapper {
-      width: 100%;
-      min-height: calc(100vh - 120px);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding-top: 120px;
-      padding-bottom: 40px;
-    }
+<style>
+/* PAGE BACKGROUND */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle at top, #49205f, #1a0f2e, #0c0618);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
 
-    /* ------------------ SIGNUP CARD ------------------ */
-    .signup-card {
-      width: 380px;
-      padding: 40px;
-      border-radius: 25px;
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(25px);
-      box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
-      color: white;
-    }
+/* WRAPPER BELOW HEADER */
+.page-wrapper {
+  display: flex;
+  justify-content: center;
+  padding-top: 100px; /* space from header */
+  padding-bottom: 60px;
+}
 
-    /* Icon */
-    .profile-icon {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      margin: 0 auto 20px auto;
-      background: rgba(255,255,255,0.2);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .profile-icon i {
-      font-size: 40px;
-    }
+/* SIGNUP CARD */
+.signup-card {
+  width: 380px;
+  padding: 40px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(25px);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+  color: white;
+}
 
-    /* Inputs */
-    .input-group {
-      margin-bottom: 22px;
-    }
-    .input-group label {
-      font-size: 14px;
-      opacity: 0.8;
-    }
-    .input-group input {
-      width: 100%;
-      padding: 10px 5px;
-      font-size: 16px;
-      background: transparent;
-      border: none;
-      border-bottom: 1px solid rgba(255,255,255,0.4);
-      color: white;
-      outline: none;
-    }
+/* Icon */
+.profile-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 auto 20px auto;
+  background: rgba(255,255,255,0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profile-icon i {
+  font-size: 40px;
+}
 
-    /* Error message (hidden initially) */
-    .input-error {
-      color: #ff5b5b;
-      font-size: 14px;
-      margin-top: 6px;
-      display: none;
-      opacity: 0;
-      transition: opacity 0.25s ease-in-out;
-    }
+/* Input groups */
+.input-group {
+  margin-bottom: 22px;
+}
 
-    /* Links */
-    .extra-links {
-      display: flex;
-      justify-content: space-between;
-      font-size: 14px;
-      opacity: 0.8;
-      margin-bottom: 20px;
-    }
-    .extra-links a {
-      color: #ccc;
-      text-decoration: none;
-    }
+.input-group label {
+  font-size: 14px;
+  opacity: 0.8;
+}
 
-    /* Signup button */
-    .btn-signup {
-      width: 100%;
-      padding: 12px;
-      border-radius: 12px;
-      border: none;
-      background: linear-gradient(90deg, #7b2ff7, #f107a3);
-      color: white;
-      font-size: 18px;
-      cursor: pointer;
-    }
+.input-group input {
+  width: 100%;
+  padding: 10px 5px;
+  font-size: 16px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255,255,255,0.4);
+  color: white;
+  outline: none;
+}
 
-    /* ------------------ FOOTER ------------------ */
-    footer {
-      text-align: center;
-      padding: 15px;
-      color: #ddd;
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(10px);
-      width: 100%;
-    }
-  </style>
+/* Error text */
+.error-text {
+  font-size: 13px;
+  color: #ff6b6b;
+  margin-top: 6px;
+  display: none;
+}
+
+/* Row under password */
+.row-links {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  opacity: 0.85;
+  margin-bottom: 25px;
+}
+
+.row-links a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+/* Signup button */
+.btn-signup {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(90deg, #7b2ff7, #f107a3);
+  border: none;
+  color: white;
+  font-size: 18px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 0;
+  bottom: 10px;
+  cursor: pointer;
+  color: #ddd;
+}
+
+/* Footer */
+footer {
+  width: 100%;
+  text-align: center;
+  padding: 18px 0;
+  color: #ddd;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+}
+</style>
+
 </head>
-
 <body>
 
-<!-- ===================== SIGNUP AREA ===================== -->
-<div class="signup-wrapper">
+<!-- SPACE BELOW HEADER -->
+<div style="height:40px;"></div>
+
+<!-- SIGNUP WRAPPER -->
+<div class="page-wrapper">
   <div class="signup-card">
     
     <div class="profile-icon">
       <i class="fa-solid fa-user-plus"></i>
     </div>
 
-    <!-- FULLNAME -->
+    <!-- FULL NAME -->
     <div class="input-group">
       <label>Full Name</label>
       <input type="text" id="fullname" />
-      <p id="err-fullname" class="input-error">Enter your full name</p>
+      <div id="nameError" class="error-text">Enter your full name</div>
     </div>
 
     <!-- EMAIL -->
     <div class="input-group">
       <label>Email ID</label>
-      <input type="email" id="email" />
-      <p id="err-email" class="input-error">Enter a valid email</p>
+      <input type="text" id="email" />
+      <div id="emailError" class="error-text">Enter a valid email</div>
     </div>
 
     <!-- PASSWORD -->
-    <div class="input-group">
+    <div class="input-group relative">
       <label>Password</label>
       <input type="password" id="password" />
-      <p id="err-password" class="input-error">Enter a password</p>
+      <i class="fa-solid fa-eye eye-icon" onclick="togglePass()"></i>
+      <div id="passError" class="error-text">Enter password</div>
     </div>
 
-    <div class="extra-links">
-      <a href="login.html">Already have an account?</a>
-      <a href="404.html">Help?</a>
+    <!-- LINKS BELOW PASSWORD -->
+    <div class="row-links">
+      <a href="login.html">Login</a>
+      <a href="404.html">Forgot Password?</a>
     </div>
 
-    <button class="btn-signup" onclick="validateSignup()">SIGN UP</button>
+    <!-- BUTTON -->
+    <button class="btn-signup" onclick="validateSignup()">SIGNUP</button>
 
   </div>
 </div>
 
-<!-- ===================== FOOTER ===================== -->
+<!-- FOOTER -->
 <footer>
   © 2025 STACKLY — All Rights Reserved
 </footer>
 
-<!-- ===================== VALIDATION SCRIPT ===================== -->
 <script>
+/* Eye toggle */
+function togglePass() {
+  const pass = document.getElementById("password");
+  pass.type = pass.type === "password" ? "text" : "password";
+}
+
+/* Validation */
 function validateSignup() {
-  const full = document.getElementById("fullname").value.trim();
+  const name = document.getElementById("fullname").value.trim();
   const email = document.getElementById("email").value.trim();
   const pass = document.getElementById("password").value.trim();
 
-  const ef = document.getElementById("err-fullname");
-  const ee = document.getElementById("err-email");
-  const ep = document.getElementById("err-password");
-
   let valid = true;
 
-  /* Full Name */
-  if (full === "") {
-    ef.style.display = "block";
-    setTimeout(() => ef.style.opacity = "1", 20);
+  // Name check
+  if (name === "") {
+    document.getElementById("nameError").style.display = "block";
     valid = false;
   } else {
-    ef.style.opacity = "0";
-    setTimeout(() => ef.style.display = "none", 200);
+    document.getElementById("nameError").style.display = "none";
   }
 
-  /* Email */
-  if (email === "") {
-    ee.style.display = "block";
-    setTimeout(() => ee.style.opacity = "1", 20);
+  // Email check
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    document.getElementById("emailError").style.display = "block";
     valid = false;
   } else {
-    ee.style.opacity = "0";
-    setTimeout(() => ee.style.display = "none", 200);
+    document.getElementById("emailError").style.display = "none";
   }
 
-  /* Password */
+  // Password check
   if (pass === "") {
-    ep.style.display = "block";
-    setTimeout(() => ep.style.opacity = "1", 20);
+    document.getElementById("passError").style.display = "block";
     valid = false;
   } else {
-    ep.style.opacity = "0";
-    setTimeout(() => ep.style.display = "none", 200);
+    document.getElementById("passError").style.display = "none";
   }
 
-  /* Redirect if valid */
-  if (valid) {
-    window.location.href = "404.html";
-  }
+  if (!valid) return;
+
+  // Redirect if valid
+  window.location.href = "404.html";
 }
 </script>
 
