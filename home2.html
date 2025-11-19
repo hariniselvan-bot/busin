@@ -111,40 +111,42 @@
 </style>
 </head>
 <body>
-<!-- HEADER -->
+
+ <!-- HEADER -->
 <header class="header fixed top-0 left-0 w-full z-50 bg-white shadow h-20 flex items-center">
   <div class="max-w-7xl w-full mx-auto px-6 flex items-center justify-between h-full">
 
     <a href="index.html" class="flex items-center gap-3">
-      <img src="logo.webp" class="w-10 h-10 object-contain" alt="Stackly logo">
-      <span class="font-bold text-xl">STACKLY</span>
-    </a>
+  <img src="logo.webp" class="w-10 h-10 object-contain" alt="Stackly logo">
+  <span class="font-bold text-xl">STACKLY</span>
+</a>
+
+  
 
     <!-- DESKTOP MENU -->
-    <nav class="hidden md:flex gap-8 font-semibold items-center">
+<nav class="hidden md:flex gap-8 font-semibold items-center">
 
-      <div class="relative group">
-        <button id="homeParent" class="hover:text-blue-600 flex items-center gap-1">
-          Home
-          <i class="fa-solid fa-chevron-down text-xs"></i>
-        </button>
+  <div class="relative group">
+    <button class="hover:text-blue-600 flex items-center gap-1">
+      Home
+      <i class="fa-solid fa-chevron-down text-xs"></i>
+    </button>
 
-        <div class="absolute bg-white shadow-lg rounded-lg hidden group-hover:block 
-              w-36 top-full pt-3 z-50">
-          <a href="index.html" class="block px-4 py-2 hover:bg-gray-100 nav-link">Home 1</a>
-          <a href="home2.html" class="block px-4 py-2 hover:bg-gray-100 nav-link">Home 2</a>
-        </div>
-      </div>
+    <div class="absolute bg-white shadow-lg rounded-lg hidden group-hover:block 
+          w-36 top-full pt-3 z-50">
+      <a href="index.html" class="block px-4 py-2 hover:bg-gray-100">Home 1</a>
+    </div>
+  </div>
 
-      <a href="team.html" class="nav-link">Our Team</a>
-      <a href="FAQ.html" class="nav-link">FAQ</a>
-      <a href="insights.html" class="nav-link">Insights</a>
-      <a href="contact.html" class="nav-link">Contact</a>
+  <a href="team.html">Our Team</a>
+    <a href="FAQ.html">FAQ</a>
+    <a href="insights.html">Insights</a>
+    <a href="contact.html">Contact</a>
 
-      <a href="login.html" class="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 nav-link">
-        Login
-      </a>
-    </nav>
+  <a href="login.html" class="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+    Login
+  </a>
+</nav>
 
     <!-- MOBILE HAMBURGER -->
     <button id="hamburgerBtn" class="md:hidden p-2 rounded-md">
@@ -153,33 +155,32 @@
 
   </div>
 </header>
-
-<!-- ACTIVE STYLE -->
 <style>
   .active {
     color: #2563eb !important;
     font-weight: 700;
-    text-shadow: 0 0 8px rgba(37, 99, 235, 0.5);
+    text-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
   }
 </style>
-
-<!-- ACTIVE SCRIPT -->
 <script>
-  const currentPage = window.location.pathname.split("/").pop() || "index.html";
-  const links = document.querySelectorAll(".nav-link");
+  const currentPage = window.location.pathname.split("/").pop() || "home2.html";
 
-  // Highlight normal pages
-  links.forEach(link => {
+  // DESKTOP – normal links
+  const desktopLinks = document.querySelectorAll("nav a");
+
+  desktopLinks.forEach(link => {
     if (link.getAttribute("href") === currentPage) {
       link.classList.add("active");
     }
   });
 
-  // Highlight HOME parent button on index.html or home2.html
+  // DESKTOP – activate Home parent if index.html or home2.html
   if (currentPage === "index.html" || currentPage === "home2.html") {
-    document.getElementById("homeParent").classList.add("active");
+    document.querySelector(".group > button").classList.add("active");
   }
 </script>
+
+
 
 
 <!-- MOBILE MENU -->
