@@ -12,7 +12,6 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    /* === BACKGROUND === */
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -21,7 +20,6 @@
       overflow-x: hidden;
     }
 
-    /* === LOGIN CONTAINER === */
     .login-wrapper {
       width: 100%;
       min-height: calc(100vh - 80px);
@@ -32,7 +30,6 @@
       padding-bottom: 40px;
     }
 
-    /* === CARD === */
     .login-card {
       width: 350px;
       padding: 35px 30px;
@@ -106,11 +103,10 @@
 
 <body>
 
-<!-- ====================== HEADER ====================== -->
+<!-- HEADER -->
 <header class="header fixed top-0 left-0 w-full z-50 bg-white shadow h-20 flex items-center">
   <div class="max-w-7xl w-full mx-auto px-6 flex items-center justify-between h-full">
 
-    <!-- LOGO -->
     <a href="index.html" class="flex items-center gap-3">
       <img src="logo.webp" class="w-10 h-10 object-contain" alt="Stackly logo">
       <span class="font-bold text-xl">STACKLY</span>
@@ -140,14 +136,14 @@
       </a>
     </nav>
 
-    <!-- MOBILE MENU BUTTON -->
+    <!-- MOBILE BUTTON -->
     <button id="hamburgerBtn" class="md:hidden p-2 rounded-md">
       <i class="fa-solid fa-bars text-2xl"></i>
     </button>
   </div>
 </header>
 
-<!-- ====================== MOBILE MENU ====================== -->
+<!-- MOBILE MENU -->
 <nav id="mobileMenu" class="hidden fixed top-20 left-0 w-full bg-white border-t shadow-lg z-40">
   <div class="px-6 py-6 flex flex-col gap-4 text-lg font-semibold">
 
@@ -166,7 +162,7 @@
     <a href="contact.html">Contact</a>
 
     <a href="login.html" class="text-blue-600 font-semibold">Login</a>
-  
+
   </div>
 </nav>
 
@@ -191,7 +187,7 @@
   }
 </script>
 
-<!-- ====================== LOGIN WRAPPER ====================== -->
+<!-- LOGIN FORM -->
 <div class="login-wrapper">
   <div class="login-card">
 
@@ -211,7 +207,8 @@
     </div>
     <p id="passError" class="error-text">Password cannot be empty</p>
 
-<button class="btn-login" onclick="window.location.href='404.html'">LOGIN</button>
+    <!-- LOGIN BUTTON -->
+    <button class="btn-login" onclick="validateLogin()">LOGIN</button>
 
     <p class="text-center mt-4 text-white text-sm">
       New member? <a href="signup.html" class="underline font-semibold">Signup</a>
@@ -236,7 +233,7 @@ function validateLogin() {
 
   let valid = true;
 
-  if (!email.endsWith("@gmail.com")) {
+  if (email === "" || !email.endsWith("@gmail.com")) {
     emailError.style.display = "block";
     valid = false;
   }
