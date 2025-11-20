@@ -85,7 +85,7 @@
     footer {
       text-align: center;
       padding: 15px;
-      color: rgb(0, 0, 0);
+      color: black;
       margin-top: 30px;
       font-size: 14px;
     }
@@ -93,6 +93,7 @@
 </head>
 <body>
 
+<!-- ================= HEADER (SAME AS HOME PAGE) ================= -->
 <header class="header fixed top-0 left-0 w-full z-50 bg-white shadow h-20 flex items-center">
   <div class="max-w-7xl w-full mx-auto px-6 flex items-center justify-between h-full">
 
@@ -102,14 +103,11 @@
     </a>
 
     <nav class="hidden md:flex gap-8 font-semibold items-center">
-      
-
       <div class="relative group">
         <button class="hover:text-blue-600 flex items-center gap-1">
           Home
           <i class="fa-solid fa-chevron-down text-xs"></i>
         </button>
-
         <div class="absolute bg-white shadow-lg rounded-lg hidden group-hover:block w-36 top-full pt-3 z-50">
           <a href="home2.html" class="block px-4 py-2 hover:bg-gray-100">Home 2</a>
         </div>
@@ -131,6 +129,7 @@
   </div>
 </header>
 
+<!-- ================= MOBILE MENU (SAME AS HOME PAGE) ================= -->
 <nav id="mobileMenu" class="hidden fixed top-20 left-0 w-full bg-white border-t shadow-lg z-40">
   <div class="px-6 py-6 flex flex-col gap-4 text-lg font-semibold">
 
@@ -153,19 +152,16 @@
 </nav>
 
 <script>
-  document.getElementById("hamburgerBtn").onclick = () =>
+  document.getElementById("hamburgerBtn").onclick = () => {
     document.getElementById("mobileMenu").classList.toggle("hidden");
+  };
 
   function toggleMobileDrop() {
     document.getElementById("mobileHomeDrop").classList.toggle("hidden");
   }
 </script>
 
-<script>
-  document.getElementById("hamburgerBtn").onclick = () =>
-    document.getElementById("mobileMenu").classList.toggle("hidden");
-</script>
-
+<!-- ================= SIGNUP FORM ================= -->
 <div class="signup-wrapper">
   <div class="signup-card">
 
@@ -189,7 +185,7 @@
     </div>
     <p id="passError" class="error-text">Password cannot be empty</p>
 
-<button class="btn-signup" onclick="window.location.href='404.html'">SIGNUP</button>
+    <button class="btn-signup" onclick="validateSignup()">SIGNUP</button>
 
     <p class="text-center mt-4 text-white text-sm">
       Already have an account? <a href="login.html" class="underline font-semibold">Login</a>
@@ -202,6 +198,7 @@
   © 2025 STACKLY — All Rights Reserved
 </footer>
 
+<!-- ========== VALIDATION SCRIPT ========== -->
 <script>
 function validateSignup() {
   let name = document.getElementById("name").value.trim();
