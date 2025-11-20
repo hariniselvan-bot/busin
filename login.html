@@ -5,10 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login - STACKLY</title>
 
-  <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
@@ -88,22 +85,15 @@
     footer {
       text-align: center;
       padding: 15px;
-      color: rgb(0, 0, 0);
+      color: black;
       margin-top: 30px;
       font-size: 14px;
     }
-
-    .active {
-      color: #ffffff !important;
-      font-weight: 700;
-      text-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
-    }
   </style>
 </head>
-
 <body>
 
-<!-- HEADER -->
+<!-- ================= HEADER ================= -->
 <header class="header fixed top-0 left-0 w-full z-50 bg-white shadow h-20 flex items-center">
   <div class="max-w-7xl w-full mx-auto px-6 flex items-center justify-between h-full">
 
@@ -112,15 +102,12 @@
       <span class="font-bold text-xl">STACKLY</span>
     </a>
 
-    <!-- DESKTOP MENU -->
     <nav class="hidden md:flex gap-8 font-semibold items-center">
-
       <div class="relative group">
         <button class="hover:text-blue-600 flex items-center gap-1">
           Home
           <i class="fa-solid fa-chevron-down text-xs"></i>
         </button>
-
         <div class="absolute bg-white shadow-lg rounded-lg hidden group-hover:block w-36 top-full pt-3 z-50">
           <a href="home2.html" class="block px-4 py-2 hover:bg-gray-100">Home 2</a>
         </div>
@@ -136,14 +123,13 @@
       </a>
     </nav>
 
-    <!-- MOBILE BUTTON -->
     <button id="hamburgerBtn" class="md:hidden p-2 rounded-md">
       <i class="fa-solid fa-bars text-2xl"></i>
     </button>
   </div>
 </header>
 
-<!-- MOBILE MENU -->
+<!-- ================= MOBILE MENU ================= -->
 <nav id="mobileMenu" class="hidden fixed top-20 left-0 w-full bg-white border-t shadow-lg z-40">
   <div class="px-6 py-6 flex flex-col gap-4 text-lg font-semibold">
 
@@ -162,56 +148,53 @@
     <a href="contact.html">Contact</a>
 
     <a href="login.html" class="text-blue-600 font-semibold">Login</a>
-
   </div>
 </nav>
 
 <script>
-  const currentPage = window.location.pathname.split("/").pop();
-
-  document.querySelectorAll("nav a").forEach(link => {
-    if (link.getAttribute("href") === currentPage) {
-      link.classList.add("active");
-    }
-  });
-
-  if (currentPage === "index.html" || currentPage === "home2.html") {
-    document.querySelector(".group > button").classList.add("active");
-  }
-
-  document.getElementById("hamburgerBtn").onclick = () =>
+  document.getElementById("hamburgerBtn").onclick = () => {
     document.getElementById("mobileMenu").classList.toggle("hidden");
+  };
 
   function toggleMobileDrop() {
     document.getElementById("mobileHomeDrop").classList.toggle("hidden");
   }
 </script>
 
-<!-- LOGIN FORM -->
+<!-- ================= LOGIN FORM ================= -->
 <div class="login-wrapper">
   <div class="login-card">
 
     <h2 class="text-center text-2xl font-bold mb-6">Login</h2>
 
-    <!-- Email -->
     <div class="input-box">
       <i class="fa-solid fa-envelope"></i>
       <input type="text" id="email" placeholder="Enter Email">
     </div>
     <p id="emailError" class="error-text">Email must end with @gmail.com</p>
 
-    <!-- Password -->
     <div class="input-box">
       <i class="fa-solid fa-lock"></i>
       <input type="password" id="password" placeholder="Enter Password">
     </div>
     <p id="passError" class="error-text">Password cannot be empty</p>
 
-    <!-- LOGIN BUTTON -->
+    <!-- Remember Me + Forgot Password -->
+    <div class="flex justify-between items-center mt-2">
+      <label class="flex items-center gap-2">
+        <input type="checkbox" id="remember">
+        <span class="text-sm text-white">Remember Me</span>
+      </label>
+
+      <a href="404.html" class="text-white underline text-sm">
+        Forgot Password?
+      </a>
+    </div>
+
     <button class="btn-login" onclick="validateLogin()">LOGIN</button>
 
     <p class="text-center mt-4 text-white text-sm">
-      New member? <a href="signup.html" class="underline font-semibold">Signup</a>
+      Don't have an account? <a href="signup.html" class="underline font-semibold">Signup</a>
     </p>
 
   </div>
@@ -221,10 +204,12 @@
   © 2025 STACKLY — All Rights Reserved
 </footer>
 
+<!-- ========== VALIDATION SCRIPT ========== -->
 <script>
 function validateLogin() {
   let email = document.getElementById("email").value.trim();
   let pass = document.getElementById("password").value.trim();
+
   let emailError = document.getElementById("emailError");
   let passError = document.getElementById("passError");
 
@@ -233,7 +218,7 @@ function validateLogin() {
 
   let valid = true;
 
-  if (email === "" || !email.endsWith("@gmail.com")) {
+  if (!email.endsWith("@gmail.com")) {
     emailError.style.display = "block";
     valid = false;
   }
