@@ -265,19 +265,80 @@ body {
 
 
 
-  <section class="hero-bg h-screen flex items-center justify-center text-white px-10 pt-24">
+  <!-- HERO SECTION -->
+<section class="hero-bg h-screen flex items-center justify-center text-white px-10 pt-24">
   <div data-animate class="max-w-2xl text-center">
-    <h1 class="text-5xl font-extrabold leading-tight drop-shadow-xl">
+
+    <h1 class="text-5xl font-extrabold leading-tight hero-title-strong">
       We Grow Your Business With Smart Digital Solutions
     </h1>
 
-    <p class="mt-4 text-lg opacity-90">
+    <p class="mt-4 text-lg hero-subtext-strong">
       Business consulting, branding, development and marketing services crafted for modern companies.
     </p>
 
-    <a href="contact.html" class="btn-get-started">Get Started</a>
+    <a href="contact.html" class="btn-get-started-strong">Get Started</a>
+
   </div>
 </section>
+
+<style>
+  /* STRONGER MAIN TITLE */
+  .hero-title-strong {
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-shadow:
+      0 0 6px rgba(255, 255, 255, 0.8),
+      0 0 12px rgba(0, 0, 0, 0.9),
+      0 0 18px rgba(0, 0, 0, 1),
+      0 0 28px rgba(0, 0, 0, 1);
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.8);
+  }
+
+  /* STRONGER SUB TEXT */
+  .hero-subtext-strong {
+    font-weight: 700;
+    opacity: 1;
+    text-shadow:
+      0 0 6px rgba(255, 255, 255, 0.7),
+      0 0 15px rgba(0, 0, 0, 1),
+      0 0 25px rgba(0, 0, 0, 1);
+    -webkit-text-stroke: 0.4px rgba(0, 0, 0, 0.7);
+  }
+
+  /* STRONG BUTTON */
+  .btn-get-started-strong {
+    display: inline-block;
+    margin-top: 22px;
+    padding: 14px 34px;
+    font-size: 19px;
+    font-weight: 800;
+    background: #00c8ff;
+    color: white;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    box-shadow:
+      0 0 12px rgba(0, 200, 255, 0.8),
+      0 0 22px rgba(0, 200, 255, 0.7);
+    transition: 0.3s ease;
+  }
+
+  .hero-subtext-strong {
+  color: #ffee00;
+  text-shadow:
+    0 0 10px #646526,
+    0 0 20px #747908,
+    0 0 30px #646526,
+}
+
+  .btn-get-started-strong:hover {
+    background: #009ecc;
+    box-shadow:
+      0 0 16px rgba(0, 200, 255, 1),
+      0 0 26px rgba(0, 200, 255, 1);
+  }
+</style>
+
 
 
 
