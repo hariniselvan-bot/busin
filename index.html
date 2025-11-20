@@ -265,8 +265,8 @@ body {
 
 
 
-  <!-- HERO SECTION -->
-<section class="hero-bg h-screen flex items-center justify-center text-white px-10 pt-24">
+<!-- HERO SECTION -->
+<section class="hero-bg h-screen flex items-center justify-center text-white px-10 pt-10">
   <div data-animate class="max-w-2xl text-center">
 
     <h1 class="text-5xl font-extrabold leading-tight hero-title-strong">
@@ -283,59 +283,43 @@ body {
 </section>
 
 <style>
-  /* STRONGER MAIN TITLE */
+  /* CLEANER TITLE */
   .hero-title-strong {
     font-weight: 900;
     letter-spacing: 1px;
     text-shadow:
-      0 0 6px rgba(255, 255, 255, 0.8),
-      0 0 12px rgba(0, 0, 0, 0.9),
-      0 0 18px rgba(0, 0, 0, 1),
-      0 0 28px rgba(0, 0, 0, 1);
-    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.8);
+      0 3px 6px rgba(0,0,0,0.55);
+    -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.5);
   }
 
-  /* STRONGER SUB TEXT */
+  /* CLEANER SUBTEXT (LIGHT YELLOW) */
   .hero-subtext-strong {
-    font-weight: 700;
-    opacity: 1;
+    font-weight: 600;
+    color: #ffe066; /* softer professional yellow */
     text-shadow:
-      0 0 6px rgba(255, 255, 255, 0.7),
-      0 0 15px rgba(0, 0, 0, 1),
-      0 0 25px rgba(0, 0, 0, 1);
-    -webkit-text-stroke: 0.4px rgba(0, 0, 0, 0.7);
+      0 2px 4px rgba(0,0,0,0.45);
   }
 
-  /* STRONG BUTTON */
+  /* BUTTON FIXED (no overglow, balanced color) */
   .btn-get-started-strong {
     display: inline-block;
     margin-top: 22px;
     padding: 14px 34px;
-    font-size: 19px;
-    font-weight: 800;
-    background: #00c8ff;
+    font-size: 18px;
+    font-weight: 700;
+    background: #009bd6;
     color: white;
     border-radius: 10px;
-    border: 2px solid rgba(255, 255, 255, 0.6);
+    border: 2px solid rgba(255,255,255,0.4);
     box-shadow:
-      0 0 12px rgba(0, 200, 255, 0.8),
-      0 0 22px rgba(0, 200, 255, 0.7);
+      0 4px 12px rgba(0,0,0,0.25);
     transition: 0.3s ease;
   }
 
-  .hero-subtext-strong {
-  color: #ffee00;
-  text-shadow:
-    0 0 10px #646526,
-    0 0 20px #747908,
-    0 0 30px #646526,
-}
-
   .btn-get-started-strong:hover {
-    background: #009ecc;
+    background: #007eac;
     box-shadow:
-      0 0 16px rgba(0, 200, 255, 1),
-      0 0 26px rgba(0, 200, 255, 1);
+      0 6px 14px rgba(0,0,0,0.35);
   }
 </style>
 
