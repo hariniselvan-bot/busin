@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Home 2 — STACKLY (Ultra Premium)</title>
+<title>Home 2 — STACKLY </title>
 
 <!-- Tailwind for quick utilities -->
 <script src="https://cdn.tailwindcss.com"></script>
@@ -124,7 +124,8 @@
   
 
     <!-- DESKTOP MENU -->
-<nav class="hidden md:flex gap-8 font-semibold items-center">
+<nav class="hidden lg:flex items-center gap-8">
+  
 
   <div class="relative group">
     <button class="hover:text-blue-600 flex items-center gap-1">
@@ -149,9 +150,10 @@
 </nav>
 
     <!-- MOBILE HAMBURGER -->
-    <button id="hamburgerBtn" class="md:hidden p-2 rounded-md">
-      <i class="fa-solid fa-bars text-2xl"></i>
-    </button>
+    <button id="hamburgerBtn" class="lg:hidden text-2xl">
+  <i class="fa-solid fa-bars"></i>
+</button>
+
 
   </div>
 </header>
@@ -212,6 +214,7 @@
   function toggleMobileDrop() {
     document.getElementById("mobileHomeDrop").classList.toggle("hidden");
   }
+  
 </script>
 
 
